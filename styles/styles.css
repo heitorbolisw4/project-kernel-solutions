@@ -617,7 +617,46 @@ footer{
     }
 }
 
-/* Medium devices (ajustes abaixo de 992px) */
+/* Tablets grandes e telas médias (912px a 992px)
+   - Evita quebra do header e remove ícones sociais */
+@media only screen and (min-width: 912px) and (max-width: 992px){
+    .header{
+        flex-wrap: nowrap;
+        gap: 16px;
+    }
+    .logo-social{
+        display: none;
+    }
+    nav{
+        width: auto;
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+    nav ul{
+        gap: 24px;
+    }
+}
+
+/* Laptops pequenos e tablets landscape (1201px a 1368px)
+   - Mantém header em uma linha reduzindo espaçamentos e ajustando nav */
+@media only screen and (min-width: 1201px) and (max-width: 1368px){
+    .header{
+        gap: 24px;
+    }
+    nav{
+        width: auto;
+        flex: 1 1 auto;
+    }
+    nav ul{
+        gap: 28px;
+    }
+    .logo-social{
+        justify-content: flex-end;
+        width: auto;
+    }
+}
+
+/* Medium devices (ajustes abaixo de 992px) - tablets */
 @media only screen and (max-width: 992px){
     .header{
         flex-wrap: wrap;
@@ -644,8 +683,18 @@ footer{
     .cta-hero{
         align-items: center;
     }
+    /* Ajustes de tipografia para tablets */
+    h1{
+        font-size: clamp(2.2rem, 5vw, 3rem);
+    }
+    h2{
+        font-size: clamp(2rem, 4.5vw, 2.6rem);
+    }
     .cta-hero p{
         font-size: 1.3em;
+    }
+    .mirror-section p{
+        font-size: 1.6em;
     }
     .img-hero{
         display: flex;
