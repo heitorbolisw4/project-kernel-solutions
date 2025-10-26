@@ -206,6 +206,11 @@ const handleNext = () => {
     const nextIndex = Math.min(currentStepIndex + 1, formSteps.length - 1);
     showStep(nextIndex);
 };
+const handlePrev = () => {
+    const prevIndex = Math.max(currentStepIndex - 1, 0);
+    showStep(prevIndex);
+};
+
 
 const toggleChallengeOption = (option, forceState) => {
     const input = option.querySelector("input[type='checkbox']");
