@@ -143,12 +143,12 @@
                 <p>Responda algumas perguntas e receba um diagnóstico inicial do seu cenário digital.</p>
             </div>
             <div class="container">
-                <div class="form-step active" id="step1">
-                    <h3>Vamos entender como sua operação funciona hoje — leva menos de 2 minuto</h3>   
-                    <button class="start-btn" data-next-step="2">Começar</button>
+                <div class="form-step active" id="step1" data-step="1">
+                    <h3>Vamos entender como sua operação funciona hoje — leva menos de 2 minutos</h3>
+                    <button type="button" class="start-btn" data-next-step="2">Começar</button>
                 </div>
 
-                <div class="form-step" id="step2">
+                <div class="form-step" id="step2" data-step="2">
                     <h3>Qual o maior desafio que você enfrenta hoje?</h3>
                     <div class="check option1" role="checkbox" tabindex="0" aria-checked="false">
                         <label for="digitalPresence">Falta de presença digital</label>
@@ -166,54 +166,64 @@
                         <label for="other">Outro</label>
                         <input type="text" name="other" id="other" placeholder="descreva...">
                     </div>                                                            
-                    <button class="next-btn" data-next-step="3">Avançar</button>
-                    <button class="prev-btn" data-next-step="3">Voltar</button>
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn" data-prev-step="1">Voltar</button>
+                        <button type="button" class="next-btn" data-next-step="3">Avançar</button>
+                    </div>
                 </div>
 
-                <div class="form-step" id="step3">
+                <div class="form-step" id="step3" data-step="3">
                     <h3>Quanto tempo você perde com tarefas manuais por semana?</h3>
-                    <div class="selection select1">
+                    <div class="selection select1" role="checkbox" tabindex="0" aria-checked="false">
                         <label for="five-hours">Menos de 5 horas</label>
                         <input type="checkbox" name="five-hours" id="fiveHours">
                     </div>
-                    <div class="selection select2">
+                    <div class="selection select2" role="checkbox" tabindex="0" aria-checked="false">
                         <label for="five-and-teen">Entre 5 e 10 horas</label>
                         <input type="checkbox" name="five-and-teen" id="fiveAndTeen">
                     </div>
-                    <div class="selection select3">
+                    <div class="selection select3" role="checkbox" tabindex="0" aria-checked="false">
                         <label for="teen-hours">Mais de 10 horas</label>
                         <input type="checkbox" name="teen-hours" id="teenHours">
                     </div>
-                    <div class="selection select4">
+                    <div class="selection select4" role="checkbox" tabindex="0" aria-checked="false">
                         <label for="idk">Não sei</label>
                         <input type="checkbox" name="idk" id="idontKnow">
                     </div>                    
-                    <button class="next-btn" data-next-step="4">Avançar</button>
-                    <button class="prev-btn" data-next-step="3">Voltar</button>
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn" data-prev-step="2">Voltar</button>
+                        <button type="button" class="next-btn" data-next-step="4">Avançar</button>
+                    </div>
                 </div>
-                <div class="form-step" id="step4">
+                <div class="form-step" id="step4" data-step="4">
                    <h3>Qual o seu nome e como podemos entrar em contato?</h3>
                     <p>Sem spam, sem vendas forçadas. Só um retorno personalizado da análise.</p>
                     <div class="adress">
+                        <label for="clientName">Nome</label>
+                        <input type="text" name="NomeCliente" id="clientName">
+                    </div>
+                    <div class="adress">
                         <label for="WhatsApp">WhatsApp</label>
-                        <input type="number" name="WhatsApp" id="whatsApp">
+                        <input type="tel" name="WhatsApp" id="whatsApp" placeholder="(00) 00000-0000">
                     </div>
                     <div class="adress">
                         <label for="email">Email</label>
-                        <input type="number" name="Email" id="email">
+                        <input type="email" name="Email" id="email" placeholder="exemplo@exemplo.com">
                     </div>
-                    <button class="next-btn" data-next-step="5">Avançar</button>
-                    <button class="prev-btn" data-next-step="4">Voltar</button>                    
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn" data-prev-step="3">Voltar</button>
+                        <button type="button" class="next-btn" data-next-step="5">Avançar</button>
+                    </div>                  
                 </div>
                 
                 <div class="form-step" id="step5" data-step="5">
                    <p>Obrigado! Você acaba de dar o primeiro passo para transformar seu digital. Em breve, você receberá uma análise inicial com recomendações específicas.</p>
-                    <button class="final-btn">Obrigado</button>
+                    <button type="button" class="final-btn">Obrigado</button>
                 </div>                                   
             </div>
         </section>                                      
         <footer>
-            <p> <cite>KRNL - 2025</cite></p>
+            <p> <cite>KERNEL - 2025</cite></p>
             <p>&copy; Todos os Direitos Reservados</p>
         </footer>                
 
