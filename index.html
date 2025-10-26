@@ -139,32 +139,77 @@
 
         <section class="form-section">
             <div class="form-title">
-                <h2>Contato</h2>
-                <p>Preencha o formulário abaixo</p>
+                <h2>Pronto para recuperar tempo, confiança e controle?</h2>
+                <p>Responda algumas perguntas e receba um diagnóstico inicial do seu cenário digital.</p>
             </div>
             <div class="container">
-                <div class="form-step active" id="step1" data-step="1">
-                    <h3>Qual é o seu nome?</h3>
-                    <input type="text" name="name" id="iname" placeholder="digite seu nome" autocomplete="off">   
-                    <button class="next-btn"data-next-step="2">Avançar</button>
+                <div class="form-step active" id="step1">
+                    <h3>Vamos entender como sua operação funciona hoje — leva menos de 2 minuto</h3>   
+                    <button class="start-btn" data-next-step="2">Começar</button>
                 </div>
-                <div class="form-step" id="step2" >
-                    <h3>Sobre Tecnologia</h3>
-                    <p>Me conte uma curiosidade sobre tecnologia</p>
-                    <textarea name="sobreTech" id="sobreTech"></textarea>
+
+                <div class="form-step" id="step2">
+                    <h3>Qual o maior desafio que você enfrenta hoje?</h3>
+                    <div class="check option1" role="checkbox" tabindex="0" aria-checked="false">
+                        <label for="digitalPresence">Falta de presença digital</label>
+                        <input type="checkbox" name="digital-presence" id="digitalPresence">
+                    </div>
+                    <div class="check option2" role="checkbox" tabindex="0" aria-checked="false">
+                        <label for="repetitiveService">Atendimento manual e repetitivo</label>
+                        <input type="checkbox" name="repetitive-service" id="repetitiveService">
+                    </div>
+                    <div class="check option3" role="checkbox" tabindex="0" aria-checked="false">
+                        <label for="lackControl">Falta de controle e organização interna</label>
+                        <input type="checkbox" name="lack-control" id="lackControl">
+                    </div>
+                    <div class="check option4" role="checkbox" tabindex="0" aria-checked="false">
+                        <label for="other">Outro</label>
+                        <input type="text" name="other" id="other" placeholder="descreva...">
+                    </div>                                                            
                     <button class="next-btn" data-next-step="3">Avançar</button>
+                    <button class="prev-btn" data-next-step="3">Voltar</button>
                 </div>
+
                 <div class="form-step" id="step3">
-                    <h3>Digite seu e-mail</h3>
-                    <p>Voçe irá receber uma piada sem graça de um LLM</p>
-                    <input type="email" name="email" id="iemail">
+                    <h3>Quanto tempo você perde com tarefas manuais por semana?</h3>
+                    <div class="selection select1">
+                        <label for="five-hours">Menos de 5 horas</label>
+                        <input type="checkbox" name="five-hours" id="fiveHours">
+                    </div>
+                    <div class="selection select2">
+                        <label for="five-and-teen">Entre 5 e 10 horas</label>
+                        <input type="checkbox" name="five-and-teen" id="fiveAndTeen">
+                    </div>
+                    <div class="selection select3">
+                        <label for="teen-hours">Mais de 10 horas</label>
+                        <input type="checkbox" name="teen-hours" id="teenHours">
+                    </div>
+                    <div class="selection select4">
+                        <label for="idk">Não sei</label>
+                        <input type="checkbox" name="idk" id="idontKnow">
+                    </div>                    
                     <button class="next-btn" data-next-step="4">Avançar</button>
+                    <button class="prev-btn" data-next-step="3">Voltar</button>
                 </div>
                 <div class="form-step" id="step4">
-                   <h3>Voce foi amaldiçoado por uma LLM</h3>
-                    <p>Você sempre irá receber piadas sem graça, e o melhor, não tem volta!</p>
+                   <h3>Qual o seu nome e como podemos entrar em contato?</h3>
+                    <p>Sem spam, sem vendas forçadas. Só um retorno personalizado da análise.</p>
+                    <div class="adress">
+                        <label for="WhatsApp">WhatsApp</label>
+                        <input type="number" name="WhatsApp" id="whatsApp">
+                    </div>
+                    <div class="adress">
+                        <label for="email">Email</label>
+                        <input type="number" name="Email" id="email">
+                    </div>
+                    <button class="next-btn" data-next-step="5">Avançar</button>
+                    <button class="prev-btn" data-next-step="4">Voltar</button>                    
+                </div>
+                
+                <div class="form-step" id="step5" data-step="5">
+                   <p>Obrigado! Você acaba de dar o primeiro passo para transformar seu digital. Em breve, você receberá uma análise inicial com recomendações específicas.</p>
                     <button class="final-btn">Obrigado</button>
-                </div>   
+                </div>                                   
             </div>
         </section>                                      
         <footer>
@@ -174,6 +219,6 @@
 
 
     </main>
-    <script src="scrips/home.JS"></script>
+    <script src="script/home.JS"></script>
 </body>
 </html>

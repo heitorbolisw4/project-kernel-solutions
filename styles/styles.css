@@ -410,29 +410,27 @@ h1{
     font-size: 1.5em;
 
 }
-#iname{
-    background-color: var(--color-3);
-    border: 1px solid var(--color-3);
-    border-radius: 3px;
-    color: var(--color-6);
-    width: 250px;
-    height: 40px;
+.check{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #323f8c;
+    cursor: pointer;
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
+    margin-bottom: 10px;
 }
-#sobreTech{
-    background-color: var(--color-3);
-    border: 1px solid var(--color-3);
-    border-radius: 3px;    
-    color: var(--color-6);
-    width: 250px;
-    height: 40px;    
+.check input[type="checkbox"]{
+    pointer-events: none;
+
 }
-#iemail{
-    background-color: var(--color-3);
-    border: 1px solid var(--color-3);
-    border-radius: 3px;    
-    color: var(--color-6);
-    width: 250px;
-    height: 40px;        
+.check.is-checked{
+    border-color: #333640;
+    box-shadow:0 0 0 3px rgba(79,70,229,.15);
+    background-color: var(--color-4);
+}
+.check.option4{
+    cursor: text;
 }
 .next-btn{
     padding: 10px;
