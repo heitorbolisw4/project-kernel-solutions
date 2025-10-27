@@ -8,12 +8,12 @@
 
     /* Paleta de cores */
 
-    --color-1: #2E38F2;         /* Azul Vibrante */
-    --color-2: #3037BF;         /* Azul Médio */
-    --color-3: #32408C;         /* Azul Profundo */
-    --color-4: #B4B9D9;         /* Cinza Azulado */
-    --color-5: #333640;         /* Cinza Escuro */
-    --color-6: #dadada;         /* Platnum "Color adc "*/
+    --color-1: #033E8C;         /* Azul Vibrante */
+    --color-2: #022859;         /* Azul Médio */
+    --color-3: #dadada;         /* Azul Profundo */
+    --color-4: #034AA6;         /* Cinza Azulado */
+    --color-5: #BF9765;         /* Cinza Escuro */
+    --color-6: #011C40;         /* Platnum "Color adc "*/
 
     /* Tipografia */
     --font-sans-1: 'Saira', sans-serif;       /* h1, h2, h3 ...*/
@@ -42,7 +42,7 @@
     margin: 0px;
     box-sizing: border-box;
 }
-body{
+body{    
     background-color: var(--color-6);
     font-family: "Saira", sans-serif;
 }
@@ -50,7 +50,7 @@ body{
     padding: 20px;
     font-size: 20px;
     color: #dadada;
-    background-color: var(--color-2);
+    background-color: var(--color-4);
     border: 1px solid #333640;
     border-radius: 3px;
     cursor: pointer;
@@ -143,7 +143,12 @@ nav ul li a:hover{
 .logo-social img{
     width: 30px;
     height: auto;
-    
+}
+.logo-social a{
+    cursor: pointer;
+}
+.logo-social a:hover{
+    transform: translateY(-5px);
 }
 
 /* Hero Section */
@@ -163,6 +168,32 @@ nav ul li a:hover{
 
 .img-hero img{
     width: min(700px, 100%);
+    position: relative;
+    z-index: 2;
+    animation: floatY 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+
+
+
+/* elevação/descida suave da mão do robô */
+@keyframes floatY{
+    0%{ transform: translateX(0) translateY(0); }
+    50%{ transform: translateX(0) translateY(-12px); }
+    100%{ transform: translateX(0) translateY(-10); }
+}
+
+/* versão com amplitude menor para telas pequenas */
+@keyframes floatYSm{
+    0%{ transform: translateX(0) translateY(0); }
+    50%{ transform: translateX(0) translateY(-6px); }
+    100%{ transform: translateX(0) translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .img-hero .hero-leds{ display:none; }
+    .img-hero img{ animation: none; }
 }
 
 .cta-hero{
@@ -171,6 +202,8 @@ nav ul li a:hover{
     gap: 1.5rem;
     font-family: "Saira", sans-serif;
     color: var(--color-3);
+    position: relative;
+    z-index: 3;
     
 }
 
@@ -210,8 +243,8 @@ h1{
     margin-bottom: 15px;
 }
 .mirror-section .m-list ul li:hover{
-    background-color: #323f8c;
-    color: var(--color-6);
+    background-color: var(--color-4);
+    color: var(--color-3);
 }
 .mirror-section p {
     padding-top: 50px;
@@ -240,7 +273,7 @@ h1{
 }
 .cards .item{
     padding: 15px;
-    background: linear-gradient(150deg, #dadada, #323f8c36);
+    background: linear-gradient(150deg, #022859f9, #011c40d7),  url(../assets/img/bg-card.jpg);
     border: 1px solid var(--color-3);
     border-radius: 3px;
     box-shadow: 2px 3px 7px 2px #323f8c13;
@@ -251,8 +284,8 @@ h1{
     width: 100%;    
 }
 .cards .item:hover{
-    background: linear-gradient(150deg, #323f8c, #333640);
-    color: var(--color-6);
+    background: linear-gradient(250deg, #011c40c1, #2e38f269);
+    color: var(--color-3);
     transform: translateY(-10px);
     box-shadow: 3px 3px 7px 2px #323f8c35;
     
@@ -290,7 +323,7 @@ h1{
     gap: 25px;
 }
 .portfolio-grid .item-grid{
-    background: linear-gradient(150deg, #dadada, #323f8c36);
+    background: linear-gradient(150deg, #022859f9, #011c40d7),  url(../assets/img/bg-card.jpg);
     border: 1px solid var(--color-3);
     text-align: start;
     padding: 20px;
@@ -302,8 +335,8 @@ h1{
     gap: 12px;  
 }
 .portfolio-grid .item-grid:hover{
-    background: linear-gradient(150deg, #323f8c, #333640);
-    color: var(--color-6);
+    background: linear-gradient(250deg, #011c40c1, #2e38f269);
+    color: var(--color-3);
     box-shadow: 2px 3px 7px 2px #323f8c13;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     transform: translateY(-10px); 
@@ -354,7 +387,7 @@ h1{
     padding: 5px;
     background-color: var(--color-6);
     border: 1px solid var(--color-3);
-    color:#323f8c;
+    color:var(--color-3);
     text-align: center;
     justify-content: center;
     text-decoration: none;
@@ -363,7 +396,7 @@ h1{
 }
 .link-project:hover{
     background-color: var(--color-4);
-    color:#32408C;
+    color:var(--color-3);
 }
 
 
@@ -386,7 +419,7 @@ h1{
     align-items: center;
     justify-content: center;
     color: var(--color-3);
-    background: linear-gradient(to right, #323f8c, #323f8c7e);
+    background: linear-gradient(150deg, #022859f9, #011c40d7),  url(../assets/img/bg-card.jpg);
 
     
     margin: 0 auto;
@@ -579,9 +612,9 @@ h1{
 
 footer{
     text-align: center;
-    background-color: var(--color-3);
+    background-color: var(--color-2);
     padding: 10px;
-    color: var(--color-6);
+    color: var(--color-3);
 }
 
 
@@ -700,6 +733,11 @@ footer{
         display: flex;
         justify-content: center;
     }
+    .img-hero .hero-leds{
+        width: 150%;
+        height: 100%;
+        top: -8%;
+    }
     .mirror-section{
         padding-left: 30px;
         padding-right: 30px;
@@ -805,6 +843,15 @@ footer{
     .cta-hero p{
         font-size: 1.2em;
     }
+    /* reduzir cobertura/velocidade em telas menores */
+    .img-hero img{
+        animation: floatYSm 5.5s ease-in-out infinite;
+    }
+    .img-hero .hero-leds{
+        width: 130%;
+        height: 90%;
+        top: -6%;
+    }
 
     .modules .cards{
         gap: 16px;
@@ -839,6 +886,11 @@ footer{
         padding-left: 16px;
         padding-right: 16px;
     }
+    .img-hero .hero-leds{
+        width: 120%;
+        height: 80%;
+        top: -4%;
+    }
     .cta-hero{
         align-items: center;
     }
@@ -864,6 +916,11 @@ footer{
 }
 
 @media only screen and (max-width: 480px){
+    .img-hero .hero-leds{
+        width: 110%;
+        height: 70%;
+        top: -2%;
+    }
 
     .modules{
         padding-left: 16px;
