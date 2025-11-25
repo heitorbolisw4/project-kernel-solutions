@@ -16,8 +16,8 @@
     --gap: 1.5rem;
     --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
     --width-container: 1400px;
-    --padding-top: 120px;
-    --padding-bottom: 120px;
+    --section-padding-block: clamp(80px, 8vw, 120px);
+    --section-padding-inline: clamp(16px, 6vw, 48px);
     --max-width: 1400px;
     --width: 100%;
     --fs-h1: clamp(2.6rem, 5vw, 4rem);
@@ -361,7 +361,7 @@ nav {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: calc(var(--padding-top) + 60px) max(24px, calc((100vw - var(--max-width)) / 2)) 90px;
+    padding: calc(var(--section-padding-block) + 28px) var(--section-padding-inline) var(--section-padding-block);
     position: relative;
     overflow: hidden;
 
@@ -473,6 +473,80 @@ nav {
     }
 }
 
+@keyframes techPulse {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 0.72;
+    }
+
+    40% {
+        transform: translate3d(8px, -6px, 0) scale(1.02);
+        opacity: 0.82;
+    }
+
+    70% {
+        transform: translate3d(-10px, 8px, 0) scale(1.01);
+        opacity: 0.76;
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 0.72;
+    }
+}
+
+@keyframes scanline {
+    0% {
+        transform: translateY(-16%);
+        opacity: 0.25;
+    }
+
+    35% {
+        opacity: 0.45;
+    }
+
+    70% {
+        transform: translateY(18%);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-16%);
+        opacity: 0.25;
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 12px 30px -14px rgba(37, 99, 235, 0.78), 0 0 0 0 rgba(37, 99, 235, 0.22);
+    }
+
+    50% {
+        box-shadow: 0 14px 32px -12px rgba(37, 99, 235, 0.9), 0 0 0 16px rgba(37, 99, 235, 0.06);
+    }
+
+    100% {
+        box-shadow: 0 12px 30px -14px rgba(37, 99, 235, 0.78), 0 0 0 0 rgba(37, 99, 235, 0.22);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-120%);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: translateX(10%);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(120%);
+        opacity: 0.2;
+    }
+}
+
 .hero .img-hero img {
     width: 100%;
     height: auto;
@@ -511,7 +585,7 @@ nav {
     max-width: var(--max-width);
     width: var(--width);
     margin: 0 auto;
-    padding: 100px 30px;
+    padding: var(--section-padding-block) var(--section-padding-inline);
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -587,6 +661,55 @@ nav {
     z-index: 3;
 }
 
+.cta-hero::before {
+    content: '';
+    position: absolute;
+    inset: -32px;
+    background:
+        radial-gradient(360px 320px at 16% 18%, rgba(37, 99, 235, 0.14), transparent 58%),
+        radial-gradient(420px 360px at 74% 12%, rgba(16, 86, 238, 0.12), transparent 62%),
+        radial-gradient(520px 440px at 42% 86%, rgba(255, 255, 255, 0.06), transparent 70%);
+    filter: blur(30px);
+    opacity: 0.9;
+    animation: techPulse 16s ease-in-out infinite;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.cta-hero::after {
+    content: '';
+    position: absolute;
+    inset: -18px;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.08), rgba(37, 99, 235, 0.16), rgba(255, 255, 255, 0.08));
+    mask-image: linear-gradient(90deg, transparent 10%, #000 25%, #000 75%, transparent 90%);
+    mix-blend-mode: screen;
+    opacity: 0.35;
+    transform: translateY(-12%);
+    animation: scanline 12s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero h1 {
+    text-shadow: 0 0 18px rgba(37, 99, 235, 0.32), 0 0 32px rgba(37, 99, 235, 0.18);
+}
+
+.hero .btn1 {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -14px rgba(37, 99, 235, 0.75);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+.hero .btn1::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.24) 40%, transparent 80%);
+    transform: translateX(-120%);
+    animation: shimmer 5.5s ease-in-out infinite;
+}
+
 .modules .cards {
     padding-top: 50px;
     display: flex;
@@ -657,7 +780,7 @@ nav {
     max-width: var(--max-width);
     width: var(--width);
     margin: 0 auto;
-    padding: 100px 30px;
+    padding: var(--section-padding-block) var(--section-padding-inline);
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -679,8 +802,7 @@ nav {
 
 /* Portfolio */
 .portfolio {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: var(--section-padding-block) var(--section-padding-inline);
     background: url(../assets/img/bg-portfolio.webp) no-repeat;
     max-width: var(--max-width);
     width: var(--width);
@@ -689,8 +811,6 @@ nav {
     margin: auto;
     background-position: bottom right;
     background-size: contain;
-    padding-left: 30px;
-    padding-right: 30px;
 }
 
 .portfolio .portfolio-grid {
@@ -827,8 +947,7 @@ nav {
 }
 
 .form-section {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: var(--section-padding-block) var(--section-padding-inline);
     background-position: right;
     background-size: cover;
 }
@@ -1181,8 +1300,7 @@ footer {
         align-items: center;
         text-align: center;
         gap: 32px;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-inline: var(--section-padding-inline);
         background-attachment: scroll, scroll, scroll, scroll;
     }
 
@@ -1223,8 +1341,7 @@ footer {
     }
 
     .mirror-section {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .mirror-section .m-list ul li {
@@ -1232,8 +1349,7 @@ footer {
     }
 
     .modules {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .modules .sub-title {
@@ -1241,8 +1357,7 @@ footer {
     }
 
     .portfolio {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .portfolio .portfolio-grid {
@@ -1446,8 +1561,7 @@ footer {
     }
 
     .header {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .logo-social {
@@ -1458,8 +1572,7 @@ footer {
     }
 
     .hero {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .img-hero .hero-leds {
@@ -1481,8 +1594,7 @@ footer {
     }
 
     .mirror-section {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 }
 
@@ -1500,8 +1612,7 @@ footer {
     }
 
     .modules {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .modules .sub-title {
@@ -1513,8 +1624,7 @@ footer {
     }
 
     .portfolio {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .portfolio-grid .item-grid {
