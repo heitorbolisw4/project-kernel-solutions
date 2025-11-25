@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />    
     <link rel="stylesheet" href="styles/styles.css">
     <title>Home</title>
 </head>
+
 <body>
     <main>
         <!-- Header -->
@@ -14,42 +15,60 @@
             <div class="logo-header">
                 <a href="#"><img src="assets/img/logo2.png" alt="logoPagina"></a>
             </div>
-            
-            <nav id="menu" class="nav">
-                <ul tabindex="1">
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Sobre</a>
-                    </li>
-                    <li>
-                        <a href="#">Serviços</a>
-                    </li>
-                    <li>
-                        <a href="#">Contato</a>
-                    </li>                                                            
-                </ul>
+
+            <nav id="menu" class="nav" aria-label="Menu principal">
+                <div class="nav-inner">
+                    <ul class="nav-list" tabindex="1">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="#">Servi&ccedil;os</a>
+                        </li>
+                        <li>
+                            <a href="#">Contato</a>
+                        </li>
+                    </ul>
+                    <div class="nav-footer">
+                        <div class="logo-social nav-social">
+                            <a href="https://github.com/heitorbolisw4" target="_blank" rel="external"><img
+                                    src="assets/img/githubLogo2.png" alt="GitHub"></a>
+                            <a href="https://www.linkedin.com/in/heitorboli" target="_blank" rel="external"><img
+                                    src="assets/img/linkedinAzul.png" alt="Linkedin"></a>
+                        </div>
+                        <!-- <a class="nav-cta" href="https://shre.ink/oLUJ" target="_blank" rel="external">Falar com especialista</a> -->
+                    </div>
+                </div>
             </nav>
-            <div class="logo-social">
-                <a href="https://github.com/heitorbolisw4" target="_blank" rel="external"><img src="assets/img/githubLogo2.png" alt="GitHub"></a>
-                <a href="https://www.linkedin.com/in/heitorboli" target="_blank" rel="external"><img src="assets/img/linkedinAzul.png" alt="Linkedin"></a>
-            </div>
-            <span aria-expanded="false" aria-controls="menu-hamburger" id="menu-hamburger" class="material-symbols-outlined">menu</span>                                  
+            <button aria-expanded="false" aria-controls="menu" id="menu-hamburger" class="menu-toggle" type="button">
+                <span class="sr-only">Abrir menu</span>
+                <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z" />
+                </svg>
+                <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path
+                        d="M5.41 4.09 12 10.67l6.59-6.58L20.5 5.5 13.91 12l6.58 6.59-1.41 1.41L12 13.41l-6.59 6.59L4 18.59 10.59 12 4 5.41z" />
+                </svg>
+            </button>
         </header>
         <!-- Section Hero -->
         <section class="hero">
             <div class="cta-hero">
-                <h1>Você cuida do seu negócio. Nós cuidamos da tecnologia</h1>
-                <p>Projetamos o núcleo tecnológico do seu negócio para que você tenha mais controle, eficiência e liberdade — enquanto você foca no que faz de melhor.</p>
-                <a href="https://shre.ink/oLUJ" target="_blank" rel="external"><button class="btn1">Agende uma Análise de Eficiência gratuita</button></a>
+                <h1>Você cuida do seu negócio. <span class="tt"><br>Nós cuidamos da tecnologia</span></h1>
+                <p>Projetamos o núcleo tecnológico do seu negócio para que você tenha mais controle, eficiência e
+                    liberdade enquanto você foca no que faz de melhor.</p>
+                <a href="https://shre.ink/oLUJ" target="_blank" rel="external"><button class="btn1">Agende uma Análise
+                        de Eficiência gratuita</button></a>
             </div>
             <div class="img-hero">
                 <img src="assets/img/imgHero1.png" alt="robotHand">
             </div>
         </section>
         <section class="mirror-section">
-            <h2>Você sente que está sempre resolvendo tudo... menos o que realmente importa?</h2>
+            <h2>Você sente que está sempre resolvendo tudo... <br> menos o que realmente importa?</h2>
             <div class="m-list">
                 <ul>
                     <li>Está perdendo tempo com tarefas repetitivas que podiam ser automatizadas?</li>
@@ -58,83 +77,100 @@
                     <li>Quer melhorar seu digital, mas não sabe por onde começar?</li>
                 </ul>
             </div>
-            <p>Você não está sozinho. Essas dores são reais <br><strong>e é por isso que a KERNEL existe.</strong></p>
-            
+            <h3><strong>Você não está sozinho.</strong> Essas dores são reais <br>e <strong>é por isso que a <span
+                        class="tt">KERNEL existe.</span></strong></h3>
+
 
         </section>
         <section class="modules">
             <h2>Transformamos o caos digital em tempo livre e controle real de acordo com as suas necessidades</h2>
-            <p class="sub-title">A <strong>KERNEL</strong> atua onde a tecnologia mais impacta sua rotina — com soluções modulares que recuperam o seu tempo, organizam seu atendimento e colocam seu negócio na palma da mão.</p>
+            <p class="sub-title">A <strong>KERNEL</strong> atua onde a tecnologia mais impacta sua rotina com soluções
+                que recuperam o seu tempo, organizam seu atendimento e colocam seu negócio na palma da mão.</p>
             <div class="cards">
                 <div class="item presence">
-                    <img width="64" height="64" src="https://img.icons8.com/arcade/96/internet.png" alt="internet"/>
+                    <img width="64" height="64" src="https://img.icons8.com/arcade/96/internet.png" alt="internet" />
                     <h3>Posicione sua marca com autoridade digital</h3>
-                    <p>Criação de sites estratégicos, landing pages e presença online clara, confiável e profissional.</p>
+                    <p>Criação de sites estratégicos, landing pages e presença online clara, confiável e profissional.
+                    </p>
                 </div>
                 <div class="item relationship">
-                    <img width="64" height="64" src="https://img.icons8.com/arcade/96/bot.png" alt="bot"/>
+                    <img width="64" height="64" src="https://img.icons8.com/arcade/96/bot.png" alt="bot" />
                     <h3>Automatize o que toma seu tempo e fidelize seus clientes.</h3>
                     <p>Chatbots inteligentes, integrações com CRM, automações de atendimento que funcionam sozinhas.</p>
                 </div>
                 <div class="item efficiency">
-                    <img width="64" height="64" src="https://img.icons8.com/arcade/96/graph.png" alt="graph"/>
+                    <img width="64" height="64" src="https://img.icons8.com/arcade/96/graph.png" alt="graph" />
                     <h3>Tenha o controle do seu negócio na palma da mão.</h3>
-                    <p>Dashboards, apps internos e sistemas sob medida que devolvem eficiência e visão para seu dia a dia.</p>
+                    <p>Dashboards, apps internos e sistemas sob medida que devolvem eficiência e visão para seu dia a
+                        dia.</p>
                 </div>
             </div>
-            <a href="https://shre.ink/oLUJ" target="_blank" rel="external"><button class="btn1">Agende uma Análise de Eficiência gratuita</button></a>                               
+            <a href="https://shre.ink/oLUJ" target="_blank" rel="external"><button class="btn1">Agende uma Análise de
+                    Eficiência gratuita</button></a>
         </section>
         <section class="portfolio">
-                <h2>Veja alguns dos nossos projetos...</h2>
-            <div class="portfolio-grid">          
+            <h2>Veja alguns dos nossos projetos...</h2>
+            <div class="portfolio-grid">
                 <div class="item-grid item-1">
                     <div class="card-title">
                         <h3>Advocacia</h3>
                         <span class="decoration">
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
                         </span>
                     </div>
                     <div>
                         <img src="assets/img/adv-print.jpg" alt="site-adv">
                         <h4>Escritório de Advocacia</h4>
                         <p>Presença digital e agendamento eficiente</p>
-                        <a href="https://adv.heitorboli.com/" rel="external" target="_blank" class="link-project" >Ver Projeto</a>
+                        <a href="https://adv.heitorboli.com/" rel="external" target="_blank" class="link-project">Ver
+                            Projeto</a>
                     </div>
                 </div>
                 <div class="item-grid item-2">
                     <div class="card-title">
                         <h3>Psicologia</h3>
                         <span class="decoration">
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
                         </span>
                     </div>
                     <div>
                         <img src="assets/img/psico-print.jpg" alt="site-adv">
                         <h4>Clinica de Psicologia</h4>
                         <p>Presença digital e agendamento eficiente</p>
-                        <a href="https://psico.heitorboli.com/" rel="external" target="_blank" class="link-project" >Ver Projeto</a>
-                    </div>                    
+                        <a href="https://psico.heitorboli.com/" rel="external" target="_blank" class="link-project">Ver
+                            Projeto</a>
+                    </div>
                 </div>
                 <div class="item-grid item-3">
                     <div class="card-title">
                         <h3>Cafeteria</h3>
                         <span class="decoration">
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
-                            <span><img width="20" height="20" src="https://img.icons8.com/forma-bold-filled/24/circled.png" alt="circled"/></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
+                            <span><img width="20" height="20" src="https://img.icons8.com/fluency/18/circled.png"
+                                    alt="circled" /></span>
                         </span>
                     </div>
                     <div>
                         <img src="assets/img/cafe-print.jpg" alt="site-adv">
                         <h4>Cafeteria</h4>
                         <p>Cardápio online</p>
-                        <a href="https://heitorbolisw4.github.io/Dev-Web-Cafe-StarBuzz/" rel="external" target="_blank" class="link-project" >Ver Projeto</a>
+                        <a href="https://heitorbolisw4.github.io/Dev-Web-Cafe-StarBuzz/" rel="external" target="_blank"
+                            class="link-project">Ver Projeto</a>
+                    </div>
                 </div>
-            </div>
         </section>
 
         <section class="form-section">
@@ -165,7 +201,7 @@
                     <div class="check option4" role="checkbox" tabindex="0" aria-checked="false">
                         <label for="other">Outro</label>
                         <input type="text" name="other" id="other" placeholder="descreva...">
-                    </div>                                                            
+                    </div>
                     <div class="form-navigation">
                         <button type="button" class="prev-btn" data-prev-step="1">Voltar</button>
                         <button type="button" class="next-btn" data-next-step="3">Avançar</button>
@@ -189,14 +225,14 @@
                     <div class="selection select4" role="checkbox" tabindex="0" aria-checked="false">
                         <label for="idk">Não sei</label>
                         <input type="checkbox" name="idk" id="idontKnow">
-                    </div>                    
+                    </div>
                     <div class="form-navigation">
                         <button type="button" class="prev-btn" data-prev-step="2">Voltar</button>
                         <button type="button" class="next-btn" data-next-step="4">Avançar</button>
                     </div>
                 </div>
                 <div class="form-step" id="step4" data-step="4">
-                   <h3>Qual o seu nome e como podemos entrar em contato?</h3>
+                    <h3>Qual o seu nome e como podemos entrar em contato?</h3>
                     <p>Sem spam, sem vendas forçadas. Só um retorno personalizado da análise.</p>
                     <div class="adress">
                         <label for="clientName">Nome</label>
@@ -213,22 +249,24 @@
                     <div class="form-navigation">
                         <button type="button" class="prev-btn" data-prev-step="3">Voltar</button>
                         <button type="button" class="next-btn" data-next-step="5">Avançar</button>
-                    </div>                  
+                    </div>
                 </div>
-                
+
                 <div class="form-step" id="step5" data-step="5">
-                   <p>Obrigado! Você acaba de dar o primeiro passo para transformar seu digital. Em breve, você receberá uma análise inicial com recomendações específicas.</p>
+                    <p>Obrigado! Você acaba de dar o primeiro passo para transformar seu digital. Em breve, você
+                        receberá uma análise inicial com recomendações específicas.</p>
                     <button type="button" class="final-btn">Obrigado</button>
-                </div>                                   
+                </div>
             </div>
-        </section>                                      
+        </section>
         <footer>
             <p> <cite>KERNEL - 2025</cite></p>
             <p>&copy; Todos os Direitos Reservados</p>
-        </footer>                
+        </footer>
 
 
     </main>
     <script src="script/home.JS"></script>
 </body>
+
 </html>

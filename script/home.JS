@@ -1,22 +1,39 @@
 /* config menu responsivo */
 
-const menuHamburger = document.getElementById("menu-hamburger")
-//const menu = document.getElementById("menu")
-const nav = document.querySelector('.nav')
+const menuHamburger = document.getElementById("menu-hamburger");
+const nav = document.querySelector('.nav');
+const iconMenu = menuHamburger?.querySelector('.icon-menu');
+const iconClose = menuHamburger?.querySelector('.icon-close');
 
-const menuResponsive = () =>{
-      nav.classList.toggle('active');
+const syncMenuState = (isOpen) => {
+    nav.classList.toggle('active', isOpen);
+    menuHamburger.setAttribute('aria-expanded', String(isOpen));
+    menuHamburger.classList.toggle('is-open', isOpen);
+    if (iconMenu && iconClose) {
+        iconMenu.hidden = isOpen;
+        iconClose.hidden = !isOpen;
+    }
 };
 
-menuHamburger.addEventListener('click', () => menuResponsive())
+const menuResponsive = () => {
+    const willOpen = !nav.classList.contains('active');
+    syncMenuState(willOpen);
+};
 
-document.addEventListener('click', (event) =>{
+menuHamburger.addEventListener('click', () => menuResponsive());
+
+document.addEventListener('click', (event) => {
     const clickInMenu = nav.contains(event.target);
     const clickoutMenu = menuHamburger.contains(event.target);
-    if(!clickInMenu && !clickoutMenu){
-        nav.classList.remove("active");
-    } 
+    if (!clickInMenu && !clickoutMenu) {
+        syncMenuState(false);
+    }
+});
 
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        syncMenuState(false);
+    }
 });
 
 
@@ -42,6 +59,10 @@ const otherChallengeInput = document.querySelector(".check.option4 input[type='t
 const timeOptions = document.querySelectorAll(".selection");
 const finalStepMessage = document.querySelector("#step5 p");
 const defaultFinalMessage = finalStepMessage ? finalStepMessage.textContent : "";
+
+const sanitizeText = (value = "") => value.replace(/[<>]/g, "").replace(/[\u0000-\u001F\u007F]/g, "").trim();
+const sanitizeDigits = (value = "") => value.replace(/\D+/g, "").trim();
+const sanitizeEmail = (value = "") => value.replace(/\s+/g, "").replace(/[<>\(\)\[\]\{\}]/g, "").toLowerCase();
 
 let currentStepIndex = formSteps.findIndex(step => step.classList.contains("active"));
 if (currentStepIndex === -1 && formSteps.length) {
@@ -124,11 +145,12 @@ const getSelectedChallenges = () => {
         const input = option.querySelector("input[type='checkbox']");
         if (input && input.checked) {
             const label = option.querySelector("label");
-            selections.push(label ? label.textContent.trim() : input.name);
+            const labelText = label ? sanitizeText(label.textContent) : sanitizeText(input.name);
+            selections.push(labelText);
         }
     });
     if (otherChallengeInput) {
-        const value = otherChallengeInput.value.trim();
+        const value = sanitizeText(otherChallengeInput.value);
         if (value) {
             selections.push(value);
         }
@@ -176,9 +198,12 @@ const validateStep = (index) => {
             const nameInput = document.getElementById("clientName");
             const whatsappInput = document.getElementById("whatsApp");
             const emailInput = document.getElementById("email");
-            const name = nameInput ? nameInput.value.trim() : "";
-            const whatsapp = whatsappInput ? whatsappInput.value.trim() : "";
-            const email = emailInput ? emailInput.value.trim() : "";
+            const name = nameInput ? sanitizeText(nameInput.value) : "";
+            const whatsapp = whatsappInput ? sanitizeDigits(whatsappInput.value) : "";
+            const email = emailInput ? sanitizeEmail(emailInput.value) : "";
+            if (nameInput) nameInput.value = name;
+            if (whatsappInput) whatsappInput.value = whatsapp;
+            if (emailInput) emailInput.value = email;
             const isNameValid = name.length >= 3;
             const isWhatsAppValid = whatsapp.length >= 9;
             const isEmailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
@@ -238,7 +263,11 @@ challengeOptions.forEach((option) => {
 
 if (otherChallengeInput) {
     otherChallengeInput.addEventListener("input", () => {
-        const hasValue = otherChallengeInput.value.trim().length > 0;
+        const cleaned = sanitizeText(otherChallengeInput.value);
+        if (cleaned !== otherChallengeInput.value) {
+            otherChallengeInput.value = cleaned;
+        }
+        const hasValue = cleaned.length > 0;
         const option = otherChallengeInput.closest(".check");
         if (!option) return;
         option.classList.toggle("is-checked", hasValue);
