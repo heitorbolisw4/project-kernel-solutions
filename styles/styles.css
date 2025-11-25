@@ -361,7 +361,7 @@ nav {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: calc(var(--section-padding-block) + 28px) var(--section-padding-inline) var(--section-padding-block);
+    padding: calc(var(--section-padding-block) + 60px) var(--section-padding-inline) var(--section-padding-block);
     position: relative;
     overflow: hidden;
 
