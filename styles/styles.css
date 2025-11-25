@@ -16,8 +16,8 @@
     --gap: 1.5rem;
     --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
     --width-container: 1400px;
-    --padding-top: 120px;
-    --padding-bottom: 120px;
+    --section-padding-block: clamp(80px, 8vw, 120px);
+    --section-padding-inline: clamp(16px, 6vw, 48px);
     --max-width: 1400px;
     --width: 100%;
     --fs-h1: clamp(2.6rem, 5vw, 4rem);
@@ -361,7 +361,7 @@ nav {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: calc(var(--padding-top) + 60px) max(24px, calc((100vw - var(--max-width)) / 2)) 90px;
+    padding: calc(var(--section-padding-block) + 60px) var(--section-padding-inline) var(--section-padding-block);
     position: relative;
     overflow: hidden;
 
@@ -511,7 +511,7 @@ nav {
     max-width: var(--max-width);
     width: var(--width);
     margin: 0 auto;
-    padding: 100px 30px;
+    padding: var(--section-padding-block) var(--section-padding-inline);
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -657,7 +657,7 @@ nav {
     max-width: var(--max-width);
     width: var(--width);
     margin: 0 auto;
-    padding: 100px 30px;
+    padding: var(--section-padding-block) var(--section-padding-inline);
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -679,8 +679,7 @@ nav {
 
 /* Portfolio */
 .portfolio {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: var(--section-padding-block) var(--section-padding-inline);
     background: url(../assets/img/bg-portfolio.webp) no-repeat;
     max-width: var(--max-width);
     width: var(--width);
@@ -689,8 +688,6 @@ nav {
     margin: auto;
     background-position: bottom right;
     background-size: contain;
-    padding-left: 30px;
-    padding-right: 30px;
 }
 
 .portfolio .portfolio-grid {
@@ -827,8 +824,7 @@ nav {
 }
 
 .form-section {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: var(--section-padding-block) var(--section-padding-inline);
     background-position: right;
     background-size: cover;
 }
@@ -1181,8 +1177,7 @@ footer {
         align-items: center;
         text-align: center;
         gap: 32px;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-inline: var(--section-padding-inline);
         background-attachment: scroll, scroll, scroll, scroll;
     }
 
@@ -1223,8 +1218,7 @@ footer {
     }
 
     .mirror-section {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .mirror-section .m-list ul li {
@@ -1232,8 +1226,7 @@ footer {
     }
 
     .modules {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .modules .sub-title {
@@ -1241,8 +1234,7 @@ footer {
     }
 
     .portfolio {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .portfolio .portfolio-grid {
@@ -1446,8 +1438,7 @@ footer {
     }
 
     .header {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .logo-social {
@@ -1458,8 +1449,7 @@ footer {
     }
 
     .hero {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .img-hero .hero-leds {
@@ -1481,8 +1471,7 @@ footer {
     }
 
     .mirror-section {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 }
 
@@ -1500,8 +1489,7 @@ footer {
     }
 
     .modules {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .modules .sub-title {
@@ -1513,8 +1501,7 @@ footer {
     }
 
     .portfolio {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-inline: var(--section-padding-inline);
     }
 
     .portfolio-grid .item-grid {

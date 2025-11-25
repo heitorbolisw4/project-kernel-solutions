@@ -20,21 +20,23 @@ const menuResponsive = () => {
     syncMenuState(willOpen);
 };
 
-menuHamburger.addEventListener('click', () => menuResponsive());
+if (menuHamburger && nav) {
+    menuHamburger.addEventListener('click', () => menuResponsive());
 
-document.addEventListener('click', (event) => {
-    const clickInMenu = nav.contains(event.target);
-    const clickoutMenu = menuHamburger.contains(event.target);
-    if (!clickInMenu && !clickoutMenu) {
-        syncMenuState(false);
-    }
-});
+    document.addEventListener('click', (event) => {
+        const clickInMenu = nav.contains(event.target);
+        const clickoutMenu = menuHamburger.contains(event.target);
+        if (!clickInMenu && !clickoutMenu) {
+            syncMenuState(false);
+        }
+    });
 
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        syncMenuState(false);
-    }
-});
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            syncMenuState(false);
+        }
+    });
+}
 
 
 /* form interativo */
