@@ -315,8 +315,6 @@ prevBtns.forEach((button) => {
     button.addEventListener("click", handlePrev);
 });
 
-focusFirstField();
-
 const resetForm = () => {
     formData.challenges = [];
     formData.manualTime = "";

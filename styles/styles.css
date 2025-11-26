@@ -341,10 +341,13 @@ nav {
 }
 
 .hero {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: center;
-    gap: 64px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    padding: calc(var(--section-padding-block) + 60px) 0 var(--section-padding-block);
+    width: 100%;
+    max-width: none;
+    margin: 0;
 
     /* Background Layers: Gradient Overlay > Particles > Background Image */
     background-image:
@@ -358,15 +361,20 @@ nav {
     background-position: center, 0 0, 0 0, center;
     background-attachment: scroll, fixed, fixed, fixed;
 
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: calc(var(--section-padding-block) + 60px) var(--section-padding-inline) var(--section-padding-block);
-    position: relative;
-    overflow: hidden;
-
     animation: particleMove 20s linear infinite;
     will-change: background-position;
+    isolation: isolate;
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 64px;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--section-padding-inline);
 }
 
 @keyframes particleMove {
@@ -967,6 +975,9 @@ nav {
     margin: 0 auto;
     border-radius: 3px;
     box-shadow: 2px 2px 14px 1px rgba(2, 5, 10, 0.47);
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
 }
 
 .form-title {
@@ -1044,16 +1055,19 @@ nav {
 
 .check.option4 input[type="text"] {
     width: 60%;
-    border: none;
-    background: transparent;
-    border-bottom: 1px solid #323f8c;
-    padding: 6px;
-    color: var(--color-5);
+    border: 1px solid var(--color-border);
+    background: rgba(12, 12, 12, 0.55);
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: var(--color-text-main);
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
 }
 
 .check.option4 input[type="text"]:focus {
     outline: none;
-    border-bottom-width: 2px;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+    background: rgba(16, 24, 48, 0.75);
 }
 
 .adress {
@@ -1066,16 +1080,25 @@ nav {
 
 .adress input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #323f8c;
-    border-radius: 4px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
     font-size: 1em;
+    background: rgba(12, 12, 12, 0.65);
+    color: var(--color-text-main);
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
 }
 
 .adress input:focus {
     outline: none;
-    border-color: var(--color-3);
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, .15);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, .15);
+    background: rgba(16, 24, 48, 0.78);
+}
+
+.adress input::placeholder,
+.check.option4 input[type="text"]::placeholder {
+    color: rgba(218, 218, 218, 0.78);
 }
 
 .selection {
@@ -1295,13 +1318,16 @@ footer {
     }
 
     .hero {
+        background-attachment: scroll, scroll, scroll, scroll;
+    }
+
+    .hero-inner {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         gap: 32px;
         padding-inline: var(--section-padding-inline);
-        background-attachment: scroll, scroll, scroll, scroll;
     }
 
     .cta-hero {
@@ -1508,7 +1534,7 @@ footer {
 
 
     /* Hero */
-    .hero {
+    .hero-inner {
         display: flex;
         flex-direction: column;
         text-align: center;
