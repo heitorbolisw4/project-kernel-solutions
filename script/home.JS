@@ -358,8 +358,16 @@ if (finalBtn) {
         showStep(0);
     });
 }
-            
-            
-            
-            
-            
+
+// Duplicar cards do carrossel para loop infinito suave
+document.addEventListener('DOMContentLoaded', () => {
+    const marqueeTrack = document.querySelector('.marquee-track');
+    if (marqueeTrack && !marqueeTrack.dataset.cloned) {
+        marqueeTrack.dataset.cloned = 'true';
+        marqueeTrack.innerHTML += marqueeTrack.innerHTML;
+        // inicia animação somente após reflow, evitando salto visível
+        requestAnimationFrame(() => {
+            marqueeTrack.classList.add('is-ready');
+        });
+    }
+});
